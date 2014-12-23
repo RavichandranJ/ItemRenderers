@@ -30,8 +30,11 @@ GridItemRenderer will used for displaying display object than label. For example
 override prepare method as below for updating the data. This is helpful as it is called just before updateDisplayList is called and this will be called only for the visible item in the datagrid and called everytime grid is updated.
 
 override public function prepare(hasBeenRecycled:Boolean):void 
+
 {
+
 	if(data) lblData.text = data[column.dataField];
+	
 }
 
 #####Please note following :
