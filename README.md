@@ -10,8 +10,11 @@ Try to follow the below guidlines while using item renderers.
 Use label function if data formating is required for the data grid coloumn. For example, if the date or currency should be formatted, then use label functions.
 
 private function date1LabelFunction(user:UserVO, coloumn:GridColumn):String
+
 {
+
 	return (user.date1) ? formatter.format(user.date1) : '';
+	
 }
 
 
