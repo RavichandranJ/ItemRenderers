@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="cbe5c8f5-9f12-47ea-b004-25334db44510" projectUUID="cbe5c8f5-9f12-47ea-b004-25334db44510" pureCatalystProject="false" sdkVersion="4.6.0" uuid="c9673456-460c-4cfc-91fe-16f6fed5e7a6" version="15">
+  <projects/>
+  <src/>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="c9673456-460c-4cfc-91fe-16f6fed5e7a6"/>
+    <linked location="D:/workspace/datagrid/RowColorApp/libs" path="/libs" position="1" uuid="c9673456-460c-4cfc-91fe-16f6fed5e7a6"/>
+  </swc>
+  <misc/>
+  <theme/>
+  <mxmlFormattingPrefs groupAttributesByState="true" maxLineWidth="100" mxmlAlignAttributes="true" mxmlAttributeOrder="id,userLabel,includeIn,excludeFrom,visible,x,y,z,left,right,top,bottom,width,height,minWidth,minHeight,maxWidth,maxHeight,label" mxmlKeepAttributeValuesOrganized="true"/>
+</fxpProperties>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   creationComplete="init()"
+					   xmlns:com="com.*">
+	<s:layout>
+		<s:VerticalLayout paddingLeft="10"
+						  paddingRight="10"
+						  paddingTop="10"
+						  paddingBottom="10"/>
+	</s:layout>
+	<fx:Declarations>
+		<mx:DateFormatter id="formatter"
+						  formatString="YYYY/MM/DD"/>
+		<mx:DateFormatter id="formatter2"
+						  formatString="YY/MM"/>
+		<mx:DateFormatter id="formatter3"
+						  formatString="DD/MM/YYYY"/>
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.UserVO;
+
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+
+			[Bindable]
+			private var dataProvider:ArrayCollection=new ArrayCollection();
+
+			private function init():void
+			{
+				for (var i:int=0; i < 1000; i++)
+				{
+					var vo:UserVO=new UserVO();
+					vo.date1=new Date(2014, 1, i);
+					vo.date2=new Date(2013, 1, i);
+					vo.date3=new Date(2012, 1, i);
+
+					vo.fname="First Name " + i;
+					vo.lname="Last Name " + i;
+					vo.rowIndex=i;
+					vo.showOrangeBg=(i % 5) ? false : true;
+
+					dataProvider.addItem(vo);
+				}
+
+			}
+
+			//---------------------------------------------------------------------
+			//
+			//	Label Functions
+			//
+			//---------------------------------------------------------------------
+
+			private function date1LabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				return (user.date1) ? formatter.format(user.date1) : '';
+			}
+
+			private function date2LabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				if (!user.date2)
+					return "";
+				return formatter2.format(user.date2);
+			}
+
+			private function date3LabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				if (!user.date3)
+					return "";
+				return formatter3.format(user.date3);
+			}
+
+			private function fnameLabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				if (!user.fname)
+					return "";
+				return user.fname;
+			}
+
+			private function lnameLabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				if (!user.lname)
+					return "";
+				return user.lname;
+			}
+
+			private function rowIndexLabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				if (!user.fname)
+					return "";
+				return user.rowIndex.toString();
+			}
+
+			private function showOrangeBgLabelFunction(user:UserVO, coloumn:GridColumn):String
+			{
+				if (!user.fname)
+					return "";
+				return user.showOrangeBg.toString();
+			}
+
+			//---------------------------------------------------------------------
+			//
+			//	Item Renderers Callback Functions
+			//
+			//---------------------------------------------------------------------
+
+			public function imageClickHandler():void
+			{
+				Alert.show('hello()');
+			}
+		]]>
+	</fx:Script>
+
+
+	<s:DataGrid width="100%"
+				height="100%"
+				dataProvider="{dataProvider}"
+				skinClass="com.RowColorDataGridSkin"				
+				alternatingRowColors="['0XFFFFFF', '0XFFFFFF']">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn headerText="Date 1"
+							  dataField="date1"
+							  labelFunction="date1LabelFunction"/>
+				<s:GridColumn headerText="Date 2"
+							  dataField="date2"
+							  labelFunction="date2LabelFunction"/>
+				<s:GridColumn headerText="Date 3"
+							  dataField="date3"
+							  labelFunction="date3LabelFunction"/>
+				<s:GridColumn headerText="First Name"
+							  dataField="fname"
+							  labelFunction="fnameLabelFunction"
+							  editable="true"/>
+				<s:GridColumn headerText="Last Name"
+							  dataField="lname"
+							  labelFunction="lnameLabelFunction"/>
+				<s:GridColumn headerText="Row Index"
+							  dataField="rowIndex"
+							  labelFunction="rowIndexLabelFunction"/>
+				<s:GridColumn headerText="Bg"
+							  dataField="showOrangeBg"
+							  labelFunction="showOrangeBgLabelFunction"/>
+				<s:GridColumn itemRenderer="com.ImageRenderer"
+							  width="40"/>
+			</s:ArrayList>
+		</s:columns>
+		<s:typicalItem>
+			<com:UserVO/>
+		</s:typicalItem>
+	</s:DataGrid>
+
+</s:WindowedApplication>
