@@ -18,12 +18,12 @@ private function date1LabelFunction(user:UserVO, coloumn:GridColumn):String
 }
 
 
-###DefaultGridItemRenderer
+##DefaultGridItemRenderer
 
 By default spark datagrid uses DefaultGridItemRenderer. Hence using this will not affect the performace. This will be helpful to format the text with properties like fontColor, font, alignment etc.
 
 
-####GridItemRenderer
+##GridItemRenderer
 
 GridItemRenderer will used for displaying display object than label. For example to display Image or DropdownList where DefaultGridItem can not be used.
 
