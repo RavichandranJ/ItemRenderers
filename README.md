@@ -13,7 +13,7 @@ private function date1LabelFunction(user:UserVO, coloumn:GridColumn):String
 
 {
 
-	return (user.date1) ? formatter.format(user.date1) : '';
+	return (user) ? formatter.format(user.date1) : '';
 	
 }
 
